@@ -1,0 +1,4 @@
+# Ignore modules that I failed to get installed.
+
+FAIL*
+
