@@ -9,8 +9,8 @@
 
 
 
-MODULE_NAME=pyvcf
-VERSION=0.6.8_python2.7
+MODULE_NAME=scipy
+VERSION=1.2.2_python2.7
 MODULES_DIR=/home/lmnp/knut0297/software/modules
 MODULESFILES_DIR=/home/lmnp/knut0297/software/modulesfiles
 
@@ -33,7 +33,7 @@ module load python2/2.7.15_anaconda
 mkdir -p $MODULES_DIR/$MODULE_NAME/$VERSION/build
 
 
-PYTHONUSERBASE=$MODULES_DIR/$MODULE_NAME/$VERSION/build pip install --user --ignore-installed pyvcf==0.6.8
+PYTHONUSERBASE=$MODULES_DIR/$MODULE_NAME/$VERSION/build pip install --user --ignore-installed scipy==1.2.2
 
 
 
@@ -59,7 +59,7 @@ cat > $VERSION <<ENDOFMESSAGE
 
 proc ModulesHelp { } {
         global version
-        puts stderr "\tThis module adds pyvcf executable to your path."
+        puts stderr "\tThis module adds scipy executable to your path."
 }
 
 
