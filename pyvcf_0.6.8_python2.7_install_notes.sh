@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 2019-10-26
+# 2019-11-13
 
 
 #######################################################################
@@ -10,7 +10,7 @@
 
 
 MODULE_NAME=pyvcf
-VERSION=python2.7_2019-10-26
+VERSION=0.6.8_python2.7
 MODULES_DIR=/home/lmnp/knut0297/software/modules
 MODULESFILES_DIR=/home/lmnp/knut0297/software/modulesfiles
 
@@ -33,7 +33,7 @@ module load python2/2.7.15_anaconda
 mkdir -p $MODULES_DIR/$MODULE_NAME/$VERSION/build
 
 
-PYTHONUSERBASE=$MODULES_DIR/$MODULE_NAME/$VERSION/build pip install --user --ignore-installed pyvcf
+PYTHONUSERBASE=$MODULES_DIR/$MODULE_NAME/$VERSION/build pip install --user --ignore-installed pyvcf==0.6.8
 
 
 
