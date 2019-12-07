@@ -89,7 +89,7 @@ set BASEDIR "/home/lmnp/knut0297/software/modules/bracken/1.0.0b/Bracken/bin"
 
 prepend-path PATH $BASEDIR
 # This software relies on perl modules, currently installed on MSI systems.
-module load perl/modules
+module load perl/modules.centos7.5.26.1
 
 
 
