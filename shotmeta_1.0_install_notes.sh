@@ -1,4 +1,4 @@
-# 2019-02-12
+# 2019-12-07
 
 
 #######################################################################
@@ -29,8 +29,10 @@ mkdir -p $MODULES_DIR/$MODULE_NAME/$VERSION
 cd $MODULES_DIR/$MODULE_NAME/$VERSION
 
 
+git clone --branch v1.0 git@github.umn.edu:knut0297/shotmeta.git
+tar -cvzf shotmeta_v1.0.tar.gz shotmeta/
 
-# Manually edit the files here
+
 
 
 
@@ -63,7 +65,7 @@ proc ModulesHelp { } {
 
 
 # Update the necessary shell environment variables to make the software work
-prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION"
+prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/shotmeta"
 
 
 
