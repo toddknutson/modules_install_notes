@@ -1,3 +1,6 @@
+#!/bin/bash
+
+
 # 2019-09-10
 
 # samtools ver 1.9
