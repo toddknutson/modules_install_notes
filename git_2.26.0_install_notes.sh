@@ -82,6 +82,7 @@ mv $MODULES_DIR/$MODULE_NAME/$VERSION/man* $MODULES_DIR/$MODULE_NAME/$VERSION/sh
 # Git bash autocompletion
 # https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
 # I can't figure out how to make this work inside a modulefile???
+cd $MODULES_DIR/$MODULE_NAME/$VERSION
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 
 
