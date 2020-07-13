@@ -17,7 +17,7 @@
 MODULE_NAME=shotmeta
 VERSION=dev
 MODULES_DIR=/home/lmnp/knut0297/software/develop/$MODULE_NAME
-MODULESFILES_DIR=/home/lmnp/knut0297/software/modulesfiles
+MODULESFILES_DIR=$HOME/software/modulesfiles
 
 
 #######################################################################

@@ -11,8 +11,8 @@
 
 MODULE_NAME=cutadapt
 VERSION=1.8.1_python2.7
-MODULES_DIR=/home/lmnp/knut0297/software/modules
-MODULESFILES_DIR=/home/lmnp/knut0297/software/modulesfiles
+MODULES_DIR=$HOME/software/modules
+MODULESFILES_DIR=$HOME/software/modulesfiles
 
 
 

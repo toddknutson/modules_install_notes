@@ -9,8 +9,8 @@ https://github.com/fulcrumgenomics/fgbio
 
 MODULE_NAME=fgbio
 VERSION=0.6.1
-MODULES_DIR=/home/lmnp/knut0297/software/modules
-MODULESFILES_DIR=/home/lmnp/knut0297/software/modulesfiles
+MODULES_DIR=$HOME/software/modules
+MODULESFILES_DIR=$HOME/software/modulesfiles
 
 
 # ---------------------------------------------------------------------

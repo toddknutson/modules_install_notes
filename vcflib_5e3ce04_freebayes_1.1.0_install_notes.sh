@@ -8,8 +8,8 @@
 
 MODULE_NAME=vcflib
 VERSION=5e3ce04_freebayes_1.1.0
-MODULES_DIR=/home/lmnp/knut0297/software/modules
-MODULESFILES_DIR=/home/lmnp/knut0297/software/modulesfiles
+MODULES_DIR=$HOME/software/modules
+MODULESFILES_DIR=$HOME/software/modulesfiles
 
 
 # ---------------------------------------------------------------------

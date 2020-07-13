@@ -14,8 +14,8 @@
 
 MODULE_NAME=icdiff
 VERSION=1.9.5
-MODULES_DIR=/home/lmnp/knut0297/software/modules
-MODULESFILES_DIR=/home/lmnp/knut0297/software/modulesfiles
+MODULES_DIR=$HOME/software/modules
+MODULESFILES_DIR=$HOME/software/modulesfiles
 
 
 

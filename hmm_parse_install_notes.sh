@@ -38,8 +38,8 @@ sed -i '1s/^/#!\/panfs\/roc\/msisoft\/python3\/3.4-conda\/bin\/python3\n/' /home
 
 MODULE_NAME=hmm_parse
 VERSION=1.0
-MODULES_DIR=/home/lmnp/knut0297/software/modules
-MODULESFILES_DIR=/home/lmnp/knut0297/software/modulesfiles
+MODULES_DIR=$HOME/software/modules
+MODULESFILES_DIR=$HOME/software/modulesfiles
 
 
 

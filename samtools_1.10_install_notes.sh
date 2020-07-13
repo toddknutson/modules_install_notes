@@ -16,8 +16,8 @@
 
 MODULE_NAME=samtools
 VERSION=1.10
-MODULES_DIR=/home/lmnp/knut0297/software/modules
-MODULESFILES_DIR=/home/lmnp/knut0297/software/modulesfiles
+MODULES_DIR=$HOME/software/modules
+MODULESFILES_DIR=$HOME/software/modulesfiles
 
 
 # ---------------------------------------------------------------------
