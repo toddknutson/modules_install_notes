@@ -1,3 +1,4 @@
+#!/bin/bash
 # 2019-02-25
 
 # Krona pie chart visualization

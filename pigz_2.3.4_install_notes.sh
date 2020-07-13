@@ -1,3 +1,4 @@
+#!/bin/bash
 # Install PIGZ for multithreaded compression
 
 # INFO:

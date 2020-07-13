@@ -1,3 +1,4 @@
+#!/bin/bash
 # 2018-05-03
 
 # annovar 2018-04-16 version

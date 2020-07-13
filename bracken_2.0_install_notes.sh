@@ -1,3 +1,4 @@
+#!/bin/bash
 # 2019-04-27
 
 # Bracken

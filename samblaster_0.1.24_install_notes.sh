@@ -1,3 +1,4 @@
+#!/bin/bash
 # 2018-05-31
 
 # samblaster

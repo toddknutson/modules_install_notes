@@ -1,3 +1,4 @@
+#!/bin/bash
 # 2018-04-11
 
 # samtools ver 1.8

@@ -1,3 +1,4 @@
+#!/bin/bash
 # 2018-05-16
 
 # bcl2fastq2
