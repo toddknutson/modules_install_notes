@@ -36,8 +36,9 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION
 # Get source code
 # 2019-04-22
 # Four commits past 0.3.0
+# https://github.com/arq5x/lumpy-sv/commit/800c67ca5b454d01e7019bdcdda63e11ff7b3968
 git clone --recursive https://github.com/arq5x/lumpy-sv.git
-
+git checkout 800c67ca5b454d01e7019bdcdda63e11ff7b3968
 
 cd lumpy-sv
 
