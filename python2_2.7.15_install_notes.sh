@@ -69,6 +69,19 @@ ln -s $MODULES_DIR/$MODULE_NAME/$VERSION/bin/python2.7 python2
 
 
 # ---------------------------------------------------------------------
+# Install PIP
+# ---------------------------------------------------------------------
+
+cd $MODULES_DIR/$MODULE_NAME/$VERSION
+wget "https://bootstrap.pypa.io/get-pip.py"
+chmod u+x get-pip.py
+./bin/python2.7 get-pip.py --prefix=$MODULES_DIR/$MODULE_NAME/$VERSION
+
+
+
+
+
+# ---------------------------------------------------------------------
 # Create the modulefile
 # ---------------------------------------------------------------------
 
