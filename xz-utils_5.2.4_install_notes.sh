@@ -1,15 +1,14 @@
 #!/bin/bash
 
-# 2019-11-13
+# 2020-08-24
+
+# https://tukaani.org/xz/
+# https://noknow.info/it/os/install_xz_utils_from_source?lang=en#sec2-1
 
 
-#######################################################################
-# 
-#######################################################################
 
-
-MODULE_NAME=scipy
-VERSION=1.2.2_python2.7.15
+MODULE_NAME=xz-utils
+VERSION=5.2.4
 MODULES_DIR=$HOME/software/modules
 MODULESFILES_DIR=$HOME/software/modulesfiles
 
@@ -26,13 +25,20 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION
 
 
 module purge
-module load python2/2.7.15
-
-# Set up a folder for all python stuff called "build"
-mkdir -p $MODULES_DIR/$MODULE_NAME/$VERSION/build
+module load gcc/7.2.0
 
 
-PYTHONUSERBASE=$MODULES_DIR/$MODULE_NAME/$VERSION/build pip install --user --ignore-installed scipy==1.2.2
+
+wget https://tukaani.org/xz/xz-5.2.4.tar.gz
+tar xzvf xz-5.2.4.tar.gz
+
+cd xz-5.2.4
+
+./configure --prefix=$MODULES_DIR/$MODULE_NAME/$VERSION
+make
+make install
+
+
 
 
 
@@ -48,7 +54,7 @@ cd $MODULESFILES_DIR/$MODULE_NAME
 
 
 
-cat > $VERSION <<ENDOFMESSAGE
+cat > $VERSION <<EOF
 #%Module######################################################################
 
 
@@ -63,12 +69,20 @@ proc ModulesHelp { } {
 
 
 # Update the necessary shell environment variables to make the software work
-module load python2/2.7.15
-prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin"
-prepend-path PYTHONPATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/lib/python2.7/site-packages"
+prepend-path    PATH $MODULES_DIR/$MODULE_NAME/$VERSION/bin
+prepend-path    LD_LIBRARY_PATH $MODULES_DIR/$MODULE_NAME/$VERSION/lib
+prepend-path    LIBRARY_PATH $MODULES_DIR/$MODULE_NAME/$VERSION/lib
+prepend-path    INCLUDE $MODULES_DIR/$MODULE_NAME/$VERSION/include
+prepend-path    CPATH $MODULES_DIR/$MODULE_NAME/$VERSION/include
+prepend-path    C_INCLUDE_PATH $MODULES_DIR/$MODULE_NAME/$VERSION/include
+prepend-path    CPLUS_INCLUDE_PATH $MODULES_DIR/$MODULE_NAME/$VERSION/include
+prepend-path    FPATH $MODULES_DIR/$MODULE_NAME/$VERSION/include
+prepend-path    PKG_CONFIG_PATH $MODULES_DIR/$MODULE_NAME/$VERSION/lib/pkgconfig
+prepend-path    MANPATH $MODULES_DIR/$MODULE_NAME/$VERSION/share/man
 
 
-ENDOFMESSAGE
+
+EOF
 
 
 
@@ -80,11 +94,11 @@ ENDOFMESSAGE
 
 
 # Set the version
-cat > .version <<ENDOFMESSAGE
+cat > .version <<EOF
 #%Module
 set ModulesVersion "$VERSION"
 
-ENDOFMESSAGE
+EOF
 
 
 
@@ -107,10 +121,6 @@ find $MODULESFILES_DIR/$MODULE_NAME -type f -print0 | xargs -0 chmod a+r
 # Make all files, that are already executable, readable and executable
 find $MODULES_DIR/$MODULE_NAME -type f -executable -print0 | xargs -0 chmod a+rx
 # Note: there are no executable files in the modulesfiles directory
-
-
-
-
 
 
 
