@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 2020-07-22
+# 2020-09-08
 
 
 #######################################################################
@@ -30,12 +30,30 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION
 
 
 # Get the binary for linux
-wget https://github.com/COMBINE-lab/salmon/releases/download/v1.3.0/salmon-1.3.0_linux_x86_64.tar.gz
+wget https://github.com/COMBINE-lab/salmon/archive/v1.3.0.tar.gz
 
-tar xvzf salmon-1.3.0_linux_x86_64.tar.gz
+tar xvzf v1.3.0.tar.gz
 
 
 
+rm -r $MODULES_DIR/$MODULE_NAME/$VERSION/salmon-1.3.0/build
+mkdir -p $MODULES_DIR/$MODULE_NAME/$VERSION/salmon-1.3.0/build
+cd $MODULES_DIR/$MODULE_NAME/$VERSION/salmon-1.3.0/build
+
+
+
+module purge
+module load boost/1.72.0/gnu-9.2.0
+module load cmake/3.12.3
+module load gcc/7.2.0
+which g++
+g++ --version
+
+
+cmake .. -DCMAKE_INSTALL_PREFIX=$MODULES_DIR/$MODULE_NAME/$VERSION -DCMAKE_CXX_COMPILER=$(which g++) -DCMAKE_C_COMPILER=$(which gcc)
+
+make CXX=$(which g++) CC=$(which gcc)
+make install
 
 
 
@@ -65,7 +83,8 @@ proc ModulesHelp { } {
 
 
 # Update the necessary shell environment variables to make the software work
-prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/salmon-latest_linux_x86_64/bin"
+prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/bin"
+prepend-path LD_LIBRARY_PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/lib"
 
 EOF
 
