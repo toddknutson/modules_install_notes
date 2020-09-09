@@ -107,6 +107,7 @@ proc ModulesHelp { } {
 
 
 # Update the necessary shell environment variables to make the software work
+module load /home/lmnp/knut0297/software/modulesfiles/libevent/2.1.12_centos6
 prepend-path PATH $MODULES_DIR/$MODULE_NAME/$VERSION/bin
 prepend-path LIBRARY_PATH $MODULES_DIR/$MODULE_NAME/$VERSION/lib
 prepend-path LD_LIBRARY_PATH $MODULES_DIR/$MODULE_NAME/$VERSION/lib
