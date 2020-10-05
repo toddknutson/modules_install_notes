@@ -28,18 +28,12 @@ mkdir -p $MODULES_DIR/$MODULE_NAME/$VERSION
 cd $MODULES_DIR/$MODULE_NAME/$VERSION
 
 
-
-
-# blat (same version as current) -- 35x1 
-# NOTE: there is a non-profit license waiver for blat included as a precaution
-# requires: mysql-devel libpng-devel
 curl -L -O http://hgwdev.cse.ucsc.edu/~kent/src/blatSrc36.zip
 unzip -d . blatSrc36.zip
 cd $MODULES_DIR/$MODULE_NAME/$VERSION/blatSrc
 
 
 module purge
-#module load libpng/1.6.34
 module load gcc/7.2.0
 
 mkdir -p $MODULES_DIR/$MODULE_NAME/$VERSION/bin
