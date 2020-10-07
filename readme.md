@@ -53,7 +53,7 @@ This will allow you to run software installed in my `/home/lmnp/knut0297/softwar
 
 ## Version control
 Only the install notes source code is being tracked using git (not any input/output files, etc.). The code is synced with GitHub at the following location: 
-[https://github.umn.edu/knut0297/modules_install_notes](https://github.umn.edu/knut0297/modules_install_notes)
+[https://github.umn.edu/knut0297org/modules_install_notes](https://github.umn.edu/knut0297org/modules_install_notes)
 
 
 
