@@ -4,7 +4,7 @@
 
 
 #######################################################################
-# 
+# FAIL
 #######################################################################
 
 
@@ -41,6 +41,7 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION/gcc-7.4.0
 
 
 module purge
+module load gcc/6.3.0
 module load bzip2/1.0.6
 
 # Download prerequisites
