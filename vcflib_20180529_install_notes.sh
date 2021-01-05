@@ -22,7 +22,7 @@ MODULESFILES_DIR=$HOME/software/modulesfiles
 mkdir -p $MODULES_DIR/$MODULE_NAME/$VERSION
 cd $MODULES_DIR/$MODULE_NAME/$VERSION
 
-
+# Commit: 3873001ca36093034213d8ba627fb1e844ad7a55
 git clone --recursive https://github.com/vcflib/vcflib
 cd vcflib
 
