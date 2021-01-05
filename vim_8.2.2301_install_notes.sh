@@ -5,6 +5,7 @@
 
 MODULE_NAME=vim
 VERSION=8.2.2301
+VERSION_SHORT=82
 MODULES_DIR=$HOME/software/modules
 MODULESFILES_DIR=$HOME/software/modulesfiles
 
@@ -46,10 +47,6 @@ module load gcc/7.2.0
 --prefix=$MODULES_DIR/$MODULE_NAME/$VERSION/build
 
 
-# See global vimrc: 
-# /etc/vimrc
-# /usr/share/vim
-# make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim MAKE="make -e"
 
 make
 make test
@@ -73,6 +70,7 @@ mkdir -p $MODULESFILES_DIR/$MODULE_NAME
 cd $MODULESFILES_DIR/$MODULE_NAME
 
 
+VIM_READLINK=$(readlink -e $MODULES_DIR/$MODULE_NAME/$VERSION/build/share/vim)
 
 
 cat > $VERSION <<EOF
@@ -91,6 +89,12 @@ proc ModulesHelp { } {
 
 # Update the necessary shell environment variables to make the software work
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin"
+setenv VIM "$VIM_READLINK"
+
+# Only prints message when being loaded
+if [ module-info mode load ] {
+    puts stderr "An environment variable: \\\$VIM, has been set to: $VIM_READLINK"
+}
 
 
 EOF
@@ -145,10 +149,8 @@ find $MODULES_DIR/$MODULE_NAME -type f -executable -print0 | xargs -0 chmod a+rx
 if [ $USER == "knut0297" ]
 then
 	# Find and replace with current $VERSION
-	sed "s|$MODULES_DIR/$MODULE_NAME/.*/build/bin|$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin|g" /home/lmnp/knut0297/.bashrc
+	sed -i "s|$MODULES_DIR/$MODULE_NAME/.*/build/bin|$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin|g" /home/lmnp/knut0297/.bashrc
+	sed -i "s|$MODULES_DIR/$MODULE_NAME/.*/build/share/vim|$MODULES_DIR/$MODULE_NAME/$VERSION/build/share/vim|g" /home/lmnp/knut0297/.bashrc
 fi
-
-
-
 
 
