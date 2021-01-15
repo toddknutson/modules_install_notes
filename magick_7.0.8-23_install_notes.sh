@@ -59,18 +59,6 @@ cd $MODULESFILES_DIR/$MODULE_NAME
 cat > $VERSION <<ENDOFMESSAGE
 #%Module######################################################################
 
-
-# Create a help message for the module
-# e.g. 
-# module help <module_name>
-
-proc ModulesHelp { } {
-        global version
-        puts stderr "\tThis module adds magick to your path."
-}
-
-
-# Update the necessary shell environment variables to make the software work
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/bin"
 prepend-path CPATH "$MODULES_DIR/$MODULE_NAME/$VERSION/include"
 prepend-path C_INCLUDE_PATH $MODULES_DIR/$MODULE_NAME/$VERSION/include
@@ -78,7 +66,7 @@ prepend-path INCLUDE $MODULES_DIR/$MODULE_NAME/$VERSION/include
 prepend-path LD_RUN_PATH $MODULES_DIR/$MODULE_NAME/$VERSION/lib
 prepend-path LD_LIBRARY_PATH $MODULES_DIR/$MODULE_NAME/$VERSION/lib
 prepend-path LIBRARY_PATH $MODULES_DIR/$MODULE_NAME/$VERSION/lib
-
+prepend-path PKG_CONFIG_PATH $MODULES_DIR/$MODULE_NAME/$VERSION/lib/pkgconfig
 
 
 
