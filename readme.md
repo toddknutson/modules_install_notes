@@ -1,8 +1,8 @@
 
 # Software Install Notes
 
-Todd Knutson
-
+Todd Knutson  
+Last updated: 2021-01-18
 
 ## Introduction
 
@@ -12,7 +12,7 @@ This directory contains text files that can be helpful when trying to install va
 >The exact code in these notes are specific to my software directory organization and will need to be edited if someone else tries to use them.
 
 
-I have set up multiple personal (my home dir) software modules using the [Environment modules](http://modules.sourceforge.net) system. My software modules are organized into the following dirs, within in my home directory (`/home/lmnp/knut0297`) on the MSI panasas primary storage:
+I have set up multiple personal software modules using the [Environment modules](http://modules.sourceforge.net) system. My software modules are organized into the following dirs, within in my home directory (`/home/lmnp/knut0297`) on MSI's tier1 (panasas, primary) storage:
 
 	/home/lmnp/knut0297/software/modules/
 	/home/lmnp/knut0297/software/modulesfiles/
@@ -27,18 +27,39 @@ Everything in the `/home/lmnp/knut0297/software` directory should be world `u+g+
 
 ## How to use these install notes?
 
-Copy the note to your system and edit the note as necessary. 
+Copy the note to your system and edit the note as necessary. Consider forking this repo. 
 
 
-## How to just load my installed software modules?
+## Can someone just load these software modules?
 
-You can load these modules explicitly by calling the full path to the modulefile. For example, to load my `rsync` ver 3.1.2 module, run:
+Anyone can load these modules by explicitly calling the full path to the modulefile or adding my modulefiles dir to their `MODULEPATH` variable. 
 
-	module load /home/lmnp/knut0297/software/modulesfiles/rsync/3.1.2
+* For example, to load my `rsync` ver 3.1.2 module, run:
 
-This will allow you to run software installed in my `/home/lmnp/knut0297/software/modules/` directory. To see how your enviroment will be changed after loading the modulefile, you can run the `module display` command. For example:
+		module load /home/lmnp/knut0297/software/modulesfiles/rsync/3.1.2
+
+* Alternatively, add my "modulesfiles" dir to your `MODULEPATH` variable. This will make any of my modules available (including default versions), without having to specify the complete modulefile path.
+
+		# Prepend path to MODULEPATH var
+		module use /home/lmnp/knut0297/software/modulesfiles
+		module load rsync/3.1.2
+		
+		# Remove path from MODULEPATH var
+		module unuse /home/lmnp/knut0297/software/modulesfiles
+	
+
+To view all available modules in my personal collection, run:
+	
+	module use /home/lmnp/knut0297/software/modulesfiles
+	module avail
+	
+
+## How is my `env` changed by loading modules?
+
+To see how your environment will be changed after loading the modulefile, you can run the `module display` command. For example:
 
 	module display /home/lmnp/knut0297/software/modulesfiles/rsync/3.1.2
+	module display rsync/3.1.2
 
 
 
