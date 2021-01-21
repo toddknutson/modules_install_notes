@@ -163,6 +163,33 @@ mkdir -p $HOME/R/knut0297_software_module/x86_64-pc-linux-gnu-library/$VERSION
 cat > $VERSION <<EOM
 #%Module######################################################################
 
+# MSI modules
+module load gcc/8.1.0
+module load udunits/2.2.27.6_gcc7.2.0
+module load pcre2/10.34
+module load java/openjdk-8_202
+module load texlive/20131202
+module load texinfo/6.5
+module load libtiff/4.0.8
+prepend-path PKG_CONFIG_PATH /panfs/roc/msisoft/libtiff/4.0.8/lib/pkgconfig
+module load zlib/1.2.11_gcc7.2.0
+module load bzip2/1.0.6-gnu7.2.0_PIC
+module load pcre/8.42_gcc7.2.0
+module load xz-utils/5.2.3_gcc7.2.0
+module load curl/7.59.0_gcc7.2.0
+
+# Todd's modules
+module load cairo/1.16.0
+module load openblas/0.3.13
+module load libgit2/1.1.0
+module load libffi/3.3
+module load libicu4c/58.2
+module load libpng/1.6.34
+module load magick/7.0.8-23
+module load umap-learn/0.3.9
+module load hdf5/1.8.13
+setenv DOWNLOAD_STATIC_LIBV8 1
+
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin"
 prepend-path LD_LIBRARY_PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/lib64"
 prepend-path LD_LIBRARY_PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/lib64/R/lib"
@@ -179,6 +206,10 @@ setenv OMP_NUM_THREADS 1
 setenv R_LIBS_USER "$HOME/R/knut0297_software_module/x86_64-pc-linux-gnu-library/$VERSION"
 
 EOM
+
+
+
+
 
 
 
@@ -207,17 +238,18 @@ EOM
 
 
 # Make all directories readable and executable
-find $MODULES_DIR/$MODULE_NAME/$VERSION -type d -print0 | xargs -0 chmod a+rxs
-find $MODULESFILES_DIR/$MODULE_NAME/$VERSION -type d -print0 | xargs -0 chmod a+rxs
+find $MODULES_DIR/$MODULE_NAME -maxdepth 0 -type d -print0 | xargs -0 chmod a+rxs,go-w
+find $MODULES_DIR/$MODULE_NAME/$VERSION -type d -print0 | xargs -0 chmod a+rxs,go-w
+find $MODULESFILES_DIR/$MODULE_NAME -maxdepth 0 -type d -print0 | xargs -0 chmod a+rxs,go-w
+find $MODULESFILES_DIR/$MODULE_NAME/$VERSION -type d -print0 | xargs -0 chmod a+rxs,go-w
 
 # Make all files readable
-find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -print0 | xargs -0 chmod a+r
-find $MODULESFILES_DIR/$MODULE_NAME/$VERSION -type f -print0 | xargs -0 chmod a+r
+find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -print0 | xargs -0 chmod a+r,go-w
+find $MODULESFILES_DIR/$MODULE1_NAME/$VERSION -type f -print0 | xargs -0 chmod a+r,go-w
 
 # Make all files, that are already executable, readable and executable
-find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -executable -print0 | xargs -0 chmod a+rx
+find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -executable -print0 | xargs -0 chmod a+rx,go-w
 # Note: there are no executable files in the modulesfiles directory
-
 
 
 
