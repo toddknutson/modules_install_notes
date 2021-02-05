@@ -23,20 +23,42 @@ module purge
 module load node/14.15.4
 
 
-# Install the library using npm (part of node.js)
-# https://nodejs.org/en/knowledge/getting-started/npm/what-is-npm
-# When you have a node project with a package.json file, you can run npm install from the 
-# project root and npm will install all the dependencies listed in the package.json. 
-# This makes installing a Node.js project from a git repo much easier!
-
-# https://stackoverflow.com/a/32883387/2367748
-# npm install --prefix $MODULES_DIR/$MODULE_NAME/$VERSION/build -g ./$VERSION.tar.gz
 
 
-# INSTALL modules
-npm install -g diff2html-cli@5.1.2
+# https://github.com/rtfpessoa/diff2html-cli/releases
+# Downloading release ver 5.1.2 (commit: c8967a8)
 
-echo "NOTE: These are installed in the node module dir -- not prefixed here" > note
+# The --global-style argument will cause npm to install the package into your local 
+# node_modules folder with the same layout it uses with the global node_modules folder. 
+# Only your direct dependencies will show in node_modules and everything they depend on 
+# will be flattened in their node_modules folders. This obviously will eliminate some deduping.
+
+
+cd $MODULES_DIR/$MODULE_NAME/$VERSION
+npm install --global-style diff2html-cli@5.1.2
+
+
+
+
+
+# 
+# 
+# # Install the library using npm (part of node.js)
+# # https://nodejs.org/en/knowledge/getting-started/npm/what-is-npm
+# # When you have a node project with a package.json file, you can run npm install from the 
+# # project root and npm will install all the dependencies listed in the package.json. 
+# # This makes installing a Node.js project from a git repo much easier!
+# 
+# # https://stackoverflow.com/a/32883387/2367748
+# # npm install --prefix $MODULES_DIR/$MODULE_NAME/$VERSION/build -g ./$VERSION.tar.gz
+# 
+# 
+# # INSTALL modules
+# # commit c8967a8
+# # https://github.com/rtfpessoa/diff2html-cli/releases
+# npm install -g diff2html-cli@5.1.2
+# 
+# echo "NOTE: These are installed in the node module dir -- not prefixed here" > note
 
 
 
@@ -55,6 +77,8 @@ cat > $VERSION <<EOF
 #%Module######################################################################
 
 module load node/14.15.4
+prepend-path PATH $MODULES_DIR/$MODULE_NAME/$VERSION/node_modules/.bin
+
 
 EOF
 
