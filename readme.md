@@ -2,7 +2,7 @@
 # Software Install Notes
 
 Todd Knutson  
-Last updated: 2021-01-18
+Last updated: 2021-02-09
 
 ## Introduction
 
