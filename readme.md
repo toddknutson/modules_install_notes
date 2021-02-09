@@ -32,34 +32,76 @@ Copy the note to your system and edit the note as necessary. Consider forking th
 
 ## Can someone just load these software modules?
 
-Anyone can load these modules by explicitly calling the full path to the modulefile or adding my modulefiles dir to their `MODULEPATH` variable. 
+Yes, anyone on the system should be able to load these modules. There are three potential methods (if unsure, try #2): 
 
-* For example, to load my `rsync` ver 3.1.2 module, run:
+1. Prepend (or append) my `/home/lmnp/knut0297/software/modulesfiles` directory to your `MODULEPATH ` environment variable. This will make all of my modules available to you.
 
-		module load /home/lmnp/knut0297/software/modulesfiles/rsync/3.1.2
 
-* Alternatively, add my "modulesfiles" dir to your `MODULEPATH` variable. This will make any of my modules available (including default versions), without having to specify the complete modulefile path.
+	If you "prepend" your `MODULEPATH` variable, all of my modules will be available __before__ the MSI system wide ones. Thus, if a tool is available in my collection and MSI's, this will load my tool.
 
 		# Prepend path to MODULEPATH var
 		module use /home/lmnp/knut0297/software/modulesfiles
-		module load rsync/3.1.2
 		
-		# Remove path from MODULEPATH var
+		module load samtools
+		
+		which samtools
+		# /home/lmnp/knut0297/software/modules/samtools/1.10/bin/samtools
+	
+	If you "append" your `MODULEPATH` variable, all of my modules will be available __after__ the MSI system wide ones. Thus, if a tool is available in my collection and MSI's, you will load MSI's tool first. 
+	
+		# Append path to MODULEPATH var
+		module use -a /home/lmnp/knut0297/software/modulesfiles
+		
+		module purge # might be needed to clear out previously loaded modules
+		module load samtools
+		
+		which samtools
+		# /panfs/roc/msisoft/samtools/1.10_gcc-7.2.0_haswell/bin/samtools
+
+	Regardless, you can always remove a search path from your `MODULEPATH` variable:
+	
 		module unuse /home/lmnp/knut0297/software/modulesfiles
+
+
+
+
+
+
+2. Specify my `/home/lmnp/knut0297/software/modulesfiles` directory as the search path only one time.
+
+	For example, if we wanted to load my `samtools` software, but we were unsure which version to use, we could specify the `MODULEPATH` variable directly on the command line for only "one execution of the `module load` command". This is ideal, because it does not alter your original `MODULEPATH` variable in any way and allows you to load any of my modules without specifying a version number.
+	
+	```
+	MODULEPATH=/home/lmnp/knut0297/software/modulesfiles module load samtools
+	which samtools
+	# /home/lmnp/knut0297/software/modules/samtools/1.10/bin/samtools
+	```
+
+3. Explicitly use the full path to my modulefile when running the `module load` command.
+
+	For example, to load my `samtools` ver 1.10 module, run:
+
+		module load /home/lmnp/knut0297/software/modulesfiles/samtools/1.10
+
+
+
+## What modules are available?
 	
 
 To view all available modules in my personal collection, run:
-	
-	module use /home/lmnp/knut0297/software/modulesfiles
-	module avail
+
+	MODULEPATH=/home/lmnp/knut0297/software/modulesfiles module avail
 	
 
 ## How is my `env` changed by loading modules?
 
 To see how your environment will be changed after loading the modulefile, you can run the `module display` command. For example:
 
-	module display /home/lmnp/knut0297/software/modulesfiles/rsync/3.1.2
-	module display rsync/3.1.2
+
+	MODULEPATH=/home/lmnp/knut0297/software/modulesfiles module display samtools/1.10
+	
+	# Or, if you've added my path to your MODULEPATH var, simply run:
+	module display samtools/1.10
 
 
 
