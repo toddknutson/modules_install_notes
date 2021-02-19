@@ -83,6 +83,7 @@ proc ModulesHelp { } {
 
 
 # Update the necessary shell environment variables to make the software work
+module load gcc/7.2.0
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/bin"
 prepend-path LD_LIBRARY_PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/lib"
 
