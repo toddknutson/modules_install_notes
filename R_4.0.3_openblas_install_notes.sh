@@ -177,6 +177,13 @@ module load bzip2/1.0.6-gnu7.2.0_PIC
 module load pcre/8.42_gcc7.2.0
 module load xz-utils/5.2.3_gcc7.2.0
 module load curl/7.59.0_gcc7.2.0
+module load gsl/2.3
+# Modules needed to compile "sf" R package
+module load gdal/2.3.2
+prepend-path PKG_CONFIG_PATH /panfs/roc/msisoft/gdal/2.3.2/lib/pkgconfig
+module load proj/4.9.3
+module load geos/3.7.1
+
 
 # Todd's modules
 module load cairo/1.16.0
