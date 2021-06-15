@@ -212,13 +212,12 @@ setenv OMP_NUM_THREADS 1
 # Sys.getenv("R_LIBS_USER") within R.
 setenv R_LIBS_USER "$HOME/R/knut0297_software_module/x86_64-pc-linux-gnu-library/$VERSION"
 
+# Needed to easily install "udunits2" and "units" R packages without specifying additional 
+# command line args to install.packages()
+setenv UDUNITS2_INCLUDE "/panfs/roc/msisoft/udunits/2.2.27.6_gcc7.2.0/include"
+setenv UDUNITS2_LIBS "/panfs/roc/msisoft/udunits/2.2.27.6_gcc7.2.0/lib"
+
 EOM
-
-
-
-
-
-
 
 
 
