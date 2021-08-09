@@ -157,7 +157,8 @@ make install
 mkdir -p $MODULESFILES_DIR/$MODULE_NAME
 cd $MODULESFILES_DIR/$MODULE_NAME
 
-mkdir -p $HOME/R/knut0297_software_module/x86_64-pc-linux-gnu-library/$VERSION
+
+# Using getenv examples: https://modules.readthedocs.io/en/latest/cookbook/test-modulefiles.html
 
 
 cat > $VERSION <<EOM
@@ -186,15 +187,15 @@ module load geos/3.7.1
 
 
 # Todd's modules
-module load cairo/1.16.0
-module load openblas/0.3.13
-module load libgit2/1.1.0
-module load libffi/3.3
-module load libicu4c/58.2
-module load libpng/1.6.34
-module load magick/7.0.8-23
-module load umap-learn/0.3.9
-module load hdf5/1.8.13
+module load /home/lmnp/knut0297/software/modulesfiles/cairo/1.16.0
+module load /home/lmnp/knut0297/software/modulesfiles/openblas/0.3.13
+module load /home/lmnp/knut0297/software/modulesfiles/libgit2/1.1.0
+module load /home/lmnp/knut0297/software/modulesfiles/libffi/3.3
+module load /home/lmnp/knut0297/software/modulesfiles/libicu4c/58.2
+module load /home/lmnp/knut0297/software/modulesfiles/libpng/1.6.34
+module load /home/lmnp/knut0297/software/modulesfiles/magick/7.0.8-23
+module load /home/lmnp/knut0297/software/modulesfiles/umap-learn/0.3.9
+module load /home/lmnp/knut0297/software/modulesfiles/hdf5/1.8.13
 setenv DOWNLOAD_STATIC_LIBV8 1
 
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin"
@@ -210,7 +211,7 @@ setenv OMP_NUM_THREADS 1
 # of being intermixed with the non-external-BLAS modules.
 # This external-BLAS-specific library can be confirmed by running 
 # Sys.getenv("R_LIBS_USER") within R.
-setenv R_LIBS_USER "$HOME/R/knut0297_software_module/x86_64-pc-linux-gnu-library/$VERSION"
+setenv R_LIBS_USER "[getenv HOME]/R/knut0297_software_module/x86_64-pc-linux-gnu-library/$VERSION"
 
 # Needed to easily install "udunits2" and "units" R packages without specifying additional 
 # command line args to install.packages()
