@@ -70,11 +70,13 @@ proc ModulesHelp { } {
 
 # Update the necessary shell environment variables to make the software work
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/ichorCNA/scripts"
+setenv ICHORCNA_LIBDIR "$MODULES_DIR/$MODULE_NAME/$VERSION/ichorCNA"
 setenv ICHORCNA_SCRIPTS "$MODULES_DIR/$MODULE_NAME/$VERSION/ichorCNA/scripts"
 setenv ICHORCNA_EXTDATA "$MODULES_DIR/$MODULE_NAME/$VERSION/ichorCNA/inst/extdata"
 
 # Only prints message when being loaded
 if [ module-info mode load ] {
+    puts stderr "An environment variable: \\\$ICHORCNA_LIBDIR, has been set that points to a directory containing the ichorcna library dir."
     puts stderr "An environment variable: \\\$ICHORCNA_SCRIPTS, has been set that points to a directory containing scripts that can be run with Rscript directly."
     puts stderr "An environment variable: \\\$ICHORCNA_EXTDATA, has been set that points to a directory containing example data files to use with the tool."
 }
