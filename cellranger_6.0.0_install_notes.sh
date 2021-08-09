@@ -32,13 +32,20 @@ ln -s /panfs/roc/groups/0/lmnp/knut0297/software/modules/cellranger/5.0.1/ref_do
 
 
 
-# 
+# # Mouse
 # wget https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-mm10-2020-A.tar.gz
 # tar xzvf refdata-gex-mm10-2020-A.tar.gz
 # 
 # wget https://cf.10xgenomics.com/supp/cell-vdj/refdata-cellranger-vdj-GRCm38-alts-ensembl-5.0.0.tar.gz
 # tar xzvf refdata-cellranger-vdj-GRCm38-alts-ensembl-5.0.0.tar.gz
 # 
+# 
+# # Human
+# wget https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-GRCh38-2020-A.tar.gz
+# tar xzvf refdata-gex-GRCh38-2020-A.tar.gz
+# 
+# wget https://cf.10xgenomics.com/supp/cell-vdj/refdata-cellranger-vdj-GRCh38-alts-ensembl-5.0.0.tar.gz
+# tar xzvf refdata-cellranger-vdj-GRCh38-alts-ensembl-5.0.0.tar.gz
 
 
 
