@@ -30,12 +30,20 @@ tar xvzf cellranger-${VERSION}.tar.gz
 mkdir -p $MODULES_DIR/$MODULE_NAME/$VERSION/ref_downloads
 cd $MODULES_DIR/$MODULE_NAME/$VERSION/ref_downloads
 
+# Mouse
 wget https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-mm10-2020-A.tar.gz
 tar xzvf refdata-gex-mm10-2020-A.tar.gz
 
 wget https://cf.10xgenomics.com/supp/cell-vdj/refdata-cellranger-vdj-GRCm38-alts-ensembl-5.0.0.tar.gz
 tar xzvf refdata-cellranger-vdj-GRCm38-alts-ensembl-5.0.0.tar.gz
 
+
+# Human
+wget https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-GRCh38-2020-A.tar.gz
+tar xzvf refdata-gex-GRCh38-2020-A.tar.gz
+
+wget https://cf.10xgenomics.com/supp/cell-vdj/refdata-cellranger-vdj-GRCh38-alts-ensembl-5.0.0.tar.gz
+tar xzvf refdata-cellranger-vdj-GRCh38-alts-ensembl-5.0.0.tar.gz
 
 
 
@@ -67,7 +75,7 @@ setenv CELLRANGER_REFS "$MODULES_DIR/$MODULE_NAME/$VERSION/ref_downloads"
 
 # Only prints message when being loaded
 if [ module-info mode load ] {
-    puts stderr "An environment variable: \\\$CELLRANGER_REFS, has been set to: $MODULES_DIR/$MODULE_NAME/$VERSION/ref_downloads"
+    puts stderr "An environment variable: CELLRANGER_REFS, has been set to: $MODULES_DIR/$MODULE_NAME/$VERSION/ref_downloads"
 }
 
 
@@ -95,23 +103,19 @@ EOF
 
 
 # ---------------------------------------------------------------------
-# Update permissions (if you want to share the module)
+# Update permissions
 # ---------------------------------------------------------------------
 
 
-# Make all directories readable and executable
-find $MODULES_DIR/$MODULE_NAME -maxdepth 0 -type d -print0 | xargs -0 chmod a+rxs,go-w
-find $MODULES_DIR/$MODULE_NAME/$VERSION -type d -print0 | xargs -0 chmod a+rxs,go-w
-find $MODULESFILES_DIR/$MODULE_NAME -maxdepth 0 -type d -print0 | xargs -0 chmod a+rxs,go-w
-find $MODULESFILES_DIR/$MODULE_NAME/$VERSION -type d -print0 | xargs -0 chmod a+rxs,go-w
+# Make all files readable; directories readable and executable
+chmod a+rxs $MODULES_DIR/$MODULE_NAME
+find $MODULES_DIR/$MODULE_NAME/$VERSION -type d -print0 | xargs -0 chmod a+rxs
+find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -print0 | xargs -0 chmod a+r
+chmod a+rxs $MODULESFILES_DIR/$MODULE_NAME
+find $MODULESFILES_DIR/$MODULE_NAME -type f -print0 | xargs -0 chmod a+r
 
-# Make all files readable
-find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -print0 | xargs -0 chmod a+r,go-w
-find $MODULESFILES_DIR/$MODULE1_NAME/$VERSION -type f -print0 | xargs -0 chmod a+r,go-w
-
-# Make all files, that are already executable, readable and executable
-find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -executable -print0 | xargs -0 chmod a+rx,go-w
-# Note: there are no executable files in the modulesfiles directory
+# Make all files, that were already executable for the user, readable and executable for all
+find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -executable -print0 | xargs -0 chmod a+rx
 
 
 
