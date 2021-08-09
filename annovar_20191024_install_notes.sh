@@ -17,7 +17,6 @@
 # http://annovar.openbioinformatics.org/en/latest/user-guide/download/
 
 
-
 MODULE_NAME=annovar
 VERSION=20191024
 MODULES_DIR=$HOME/software/modules
@@ -71,7 +70,10 @@ find $MODULES_DIR/$MODULE_NAME -name "*.pl" -print0 | xargs -0 chmod u+rx
 perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar exac03 humandb/ 
 perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar avsnp150 humandb/ 
 perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar dbnsfp35c humandb/
-
+perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar gnomad211_genome humandb/
+perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar gnomad211_exome humandb/
+perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar icgc28 humandb/
+perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar clinvar_20210501 humandb/
 
 
 
