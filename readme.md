@@ -59,7 +59,7 @@ Yes, anyone on the system *should* be able to load these modules.
 
 2. Specify my `/home/lmnp/knut0297/software/modulesfiles` directory as the search path only one time.
 
-	For example, if we wanted to load my `samtools` software, but we were unsure which version to use, we could specify the `MODULEPATH` variable directly on the command line for only "one execution of the `module load` command". This is ideal, because it does not alter your original `MODULEPATH` variable in any way and allows you to load any of my modules without specifying a version number.
+	For example, if we wanted to load my `samtools` software, but we were unsure which version to use, we could specify the `MODULEPATH` variable directly on the command line for only "one execution of the `module load` command". This is nice, because it does not alter your original `MODULEPATH` variable in any way and allows you to load any of my modules without specifying a version number. [How does this work? It's a simple feature of bash](https://unix.stackexchange.com/a/126942/146742).
 	
 	```
 	MODULEPATH=/home/lmnp/knut0297/software/modulesfiles module load samtools
