@@ -20,7 +20,7 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION
 
 module use /home/lmnp/knut0297/software/modulesfiles
 module purge
-module load node/14.15.4
+module load /home/lmnp/knut0297/software/modulesfiles/node/14.15.4
 
 
 
@@ -76,7 +76,7 @@ cd $MODULESFILES_DIR/$MODULE_NAME
 cat > $VERSION <<EOF
 #%Module######################################################################
 
-module load node/14.15.4
+module load /home/lmnp/knut0297/software/modulesfiles/node/14.15.4
 prepend-path PATH $MODULES_DIR/$MODULE_NAME/$VERSION/node_modules/.bin
 
 

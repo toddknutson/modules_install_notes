@@ -40,7 +40,7 @@ git checkout master
 
 
 module purge
-module load python3/3.7.10
+module load /home/lmnp/knut0297/software/modulesfiles/python3/3.7.10
 
 # Set up a folder for all python stuff called "build"
 mkdir -p $MODULES_DIR/$MODULE_NAME/$VERSION/build
@@ -153,7 +153,7 @@ cd $MODULESFILES_DIR/$MODULE_NAME
 cat > $VERSION <<EOM
 #%Module######################################################################
 
-module load python3/3.7.10
+module load /home/lmnp/knut0297/software/modulesfiles/python3/3.7.10
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/pbampliconclustering"
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin"
 prepend-path PYTHONPATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/lib/python3.7/site-packages"
@@ -204,7 +204,7 @@ find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -executable -print0 | xargs -0 c
 #######################################################################
 
 #
-# module load pbampliconclustering/0.0.2_python3.7.10
+# module load /home/lmnp/knut0297/software/modulesfiles/pbampliconclustering/0.0.2_python3.7.10
 # cd my_fav_project_dir
 # ClusterAmplicons.py cluster -j 1 --inFastq "sample.A01--A01.ccs.fastq" --plotReads 5 --prefix all
 #

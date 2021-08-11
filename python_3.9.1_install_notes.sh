@@ -35,7 +35,7 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION/Python-$VERSION
 module purge
 module load gcc/7.2.0
 module load bzip2/1.0.6-gnu7.2.0_PIC
-module load libffi/3.3
+module load /home/lmnp/knut0297/software/modulesfiles/libffi/3.3
 
 
 # libffi needs to be available during configure
@@ -132,7 +132,7 @@ cat > $VERSION <<EOM
 
 module load gcc/7.2.0
 module load bzip2/1.0.6-gnu7.2.0_PIC
-module load libffi/3.3
+module load /home/lmnp/knut0297/software/modulesfiles/libffi/3.3
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin"
 prepend-path LD_LIBRARY_PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/lib"
 prepend-path PYTHONPATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/lib/python3.9/site-packages"

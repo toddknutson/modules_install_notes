@@ -31,7 +31,7 @@ tar xvjf fastx_toolkit-0.0.14.tar.bz2
 
 module purge
 module load gcc/4.9.2
-module load libgtextutils/0.6
+module load /home/lmnp/knut0297/software/modulesfiles/libgtextutils/0.6
 
 
 
@@ -73,7 +73,7 @@ proc ModulesHelp { } {
 
 
 # Update the necessary shell environment variables to make the software work
-module load libgtextutils/0.6
+module load /home/lmnp/knut0297/software/modulesfiles/libgtextutils/0.6
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/bin"
 
 

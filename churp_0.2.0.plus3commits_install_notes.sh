@@ -65,7 +65,7 @@ proc ModulesHelp { } {
 
 
 # Update the necessary shell environment variables to make the software work
-module load python3
+module load python3/3.6.3_anaconda5.0.1
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/CHURP"
 
 ENDOFMESSAGE

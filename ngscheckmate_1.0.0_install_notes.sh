@@ -72,9 +72,9 @@ proc ModulesHelp { } {
 
 
 # Update the necessary shell environment variables to make the software work
-module load python2/2.7.15
+module load /home/lmnp/knut0297/software/modulesfiles/python2/2.7.15
 module load R/3.3.3
-module load samtools/0.1.19
+module load /home/lmnp/knut0297/software/modulesfiles/samtools/0.1.19
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/NGSCheckMate"
 setenv NGSCHECKMATE_INSTALL_DIR "$MODULES_DIR/$MODULE_NAME/$VERSION/NGSCheckMate"
 

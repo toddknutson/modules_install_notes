@@ -127,7 +127,7 @@ cd $MODULESFILES_DIR/$MODULE_NAME
 cat > $VERSION <<EOM
 #%Module######################################################################
 
-module load python3/3.7.10
+module load /home/lmnp/knut0297/software/modulesfiles/python3/3.7.10
 #prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/UMI-tools"
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin"
 prepend-path PYTHONPATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/lib/python3.7/site-packages"

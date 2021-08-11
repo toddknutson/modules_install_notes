@@ -34,12 +34,12 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION
 # module load gcc/8.2.0
 # module load cmake/3.10.2
 
-module load edlib/1.2.4
+module load /home/lmnp/knut0297/software/modulesfiles/edlib/1.2.4
 module load perl/5.26.1
 module load perl/modules.centos7.5.26.1
-module load samtools/1.9
-module load mummer
-module load bedtools
+module load /home/lmnp/knut0297/software/modulesfiles/samtools/1.9
+module load mummer/3.23.CentOS7
+module load bedtools/2.27.1
 
 
 
@@ -94,10 +94,10 @@ proc ModulesHelp { } {
 
 
 # Update the necessary shell environment variables to make the software work
-module load edlib/1.2.4
+module load /home/lmnp/knut0297/software/modulesfiles/edlib/1.2.4
 module load perl/5.26.1
 module load perl/modules.centos7.5.26.1
-module load samtools/1.9
+module load /home/lmnp/knut0297/software/modulesfiles/samtools/1.9
 module load mummer/3.23.CentOS7
 module load bedtools/2.27.1
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/bin"

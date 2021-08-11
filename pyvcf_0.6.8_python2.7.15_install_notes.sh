@@ -64,7 +64,7 @@ proc ModulesHelp { } {
 
 
 # Update the necessary shell environment variables to make the software work
-module load python2/2.7.15
+module load /home/lmnp/knut0297/software/modulesfiles/python2/2.7.15
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin"
 prepend-path PYTHONPATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/lib/python2.7/site-packages"
 
