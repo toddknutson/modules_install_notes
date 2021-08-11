@@ -2,23 +2,24 @@
 # Software Install Notes
 
 Todd Knutson  
-Last updated: 2021-02-09
+Last updated: 2021-08-11
 
 ## Introduction
 
 
 This directory contains text files that can be helpful when trying to install various software modules in your home directory on MSI (i.e. without root access). Generally, these files are bash scripts, but they should definitely be run interactively, line-by-line, so any issues can be identified immediately.
 
->The exact code in these notes are specific to my software directory organization and will need to be edited if someone else tries to use them.
+>The exact code in these notes are specific to my software directory organization and may need to be edited if someone else tries to use them.
 
 
-I have set up multiple personal software modules using the [Environment modules](http://modules.sourceforge.net) system. My software modules are organized into the following dirs, within in my home directory (`/home/lmnp/knut0297`) on MSI's tier1 (panasas, primary) storage:
+I have set up multiple personal software modules using the [Environment modules](http://modules.sourceforge.net) system. My software modules and associated files are organized into the following directories, within in my MSI home directory (`/home/lmnp/knut0297`) on MSI's tier1 (panasas, primary) storage:
 
-	/home/lmnp/knut0297/software/modules/
-	/home/lmnp/knut0297/software/modulesfiles/
-	/home/lmnp/knut0297/software/modules_install_notes/
-	
-The `/home/lmnp/knut0297/software/modules_install_notes/` is this directory. Using any particular install note, you should be able to download and install software inside the `/home/lmnp/knut0297/software/modules/` directory. Then, a "modulefile" is created and stored in the `/home/lmnp/knut0297/software/modulesfiles/` directory. This modulefile contains the instructions for how your environment is modified when loading the module. 
+| Directory path | Purpose |
+|----------------|---------|
+|`/home/lmnp/knut0297/software/modules/`| Location where all software files are downloaded and/or compiled (organized by a unique software name).|
+|`/home/lmnp/knut0297/software/modulesfiles/`| Location of the "modulefile" for each software tool. Each modulefile contains the instructions for how your environment is modified when loading the module. |
+|`/home/lmnp/knut0297/software/modules_install_notes/`| Location of the bash script that defines the software tool installation method (i.e. this git repo)|
+
 
 
 
@@ -27,14 +28,48 @@ Everything in the `/home/lmnp/knut0297/software` directory should be world `u+g+
 
 ## How to use these install notes?
 
-Copy the note to your system and edit the note as necessary. Consider forking this repo. 
+1. Copy the note to your system.
+2. Edit the note as necessary (change any paths, etc.).
+3. Run the commands in the note to download and build the software tool.
+4. Each note also includes creating an associated `modulefile` that describes how the environment needs to be changed for the software to work. You must load the module or manually update any PATH (or similar) variables on your system for the software to work. 
 
 
-## Can someone just load these software modules?
+Consider forking this repo to track any updates.
 
-Yes, anyone on the system should be able to load these modules. There are three potential methods (if unsure, try #2): 
 
-1. Prepend (or append) my `/home/lmnp/knut0297/software/modulesfiles` directory to your `MODULEPATH ` environment variable. This will make all of my modules available to you.
+## Can someone just load these software modules (without re-installing them)?
+
+Yes, anyone on the system *should* be able to load these modules. 
+
+> However, I do not test these modules as different users/groups, so there might be issues. Please let me know if you have any problems running one of my modules in your environment and I might be able to help (knut0297@umn.edu).
+
+
+### There are three potential methods (just use method #1 for simplicity and transparency):
+
+1. Explicitly use the full path to my modulefile when running the `module load` command.
+
+	For example, to load my `samtools` ver 1.10 module, run:
+
+		module load /home/lmnp/knut0297/software/modulesfiles/samtools/1.10
+
+    If MSI also has a `samtools/1.10` version available, the above method will ensure that my module will be loaded and not the MSI version.
+    
+    
+
+
+2. Specify my `/home/lmnp/knut0297/software/modulesfiles` directory as the search path only one time.
+
+	For example, if we wanted to load my `samtools` software, but we were unsure which version to use, we could specify the `MODULEPATH` variable directly on the command line for only "one execution of the `module load` command". This is ideal, because it does not alter your original `MODULEPATH` variable in any way and allows you to load any of my modules without specifying a version number.
+	
+	```
+	MODULEPATH=/home/lmnp/knut0297/software/modulesfiles module load samtools
+	which samtools
+	# /home/lmnp/knut0297/software/modules/samtools/1.10/bin/samtools
+	```
+
+
+
+3. Prepend (or append) my `/home/lmnp/knut0297/software/modulesfiles` directory to your `MODULEPATH ` environment variable. This will make all of my modules available to you.
 
 
 	If you "prepend" your `MODULEPATH` variable, all of my modules will be available __before__ the MSI system wide ones. Thus, if a tool is available in my collection and MSI's, this will load my tool.
@@ -67,24 +102,6 @@ Yes, anyone on the system should be able to load these modules. There are three 
 
 
 
-2. Specify my `/home/lmnp/knut0297/software/modulesfiles` directory as the search path only one time.
-
-	For example, if we wanted to load my `samtools` software, but we were unsure which version to use, we could specify the `MODULEPATH` variable directly on the command line for only "one execution of the `module load` command". This is ideal, because it does not alter your original `MODULEPATH` variable in any way and allows you to load any of my modules without specifying a version number.
-	
-	```
-	MODULEPATH=/home/lmnp/knut0297/software/modulesfiles module load samtools
-	which samtools
-	# /home/lmnp/knut0297/software/modules/samtools/1.10/bin/samtools
-	```
-
-3. Explicitly use the full path to my modulefile when running the `module load` command.
-
-	For example, to load my `samtools` ver 1.10 module, run:
-
-		module load /home/lmnp/knut0297/software/modulesfiles/samtools/1.10
-
-
-
 ## What modules are available?
 	
 
@@ -98,7 +115,7 @@ To view all available modules in my personal collection, run:
 To see how your environment will be changed after loading the modulefile, you can run the `module display` command. For example:
 
 
-	MODULEPATH=/home/lmnp/knut0297/software/modulesfiles module display samtools/1.10
+	module display /home/lmnp/knut0297/software/modulesfiles/samtools/1.10
 	
 	# Or, if you've added my path to your MODULEPATH var, simply run:
 	module display samtools/1.10
