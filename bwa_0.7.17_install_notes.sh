@@ -25,7 +25,7 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION
 
 module purge
 module load gcc/7.2.0
-module load zlib/1.2.11
+module load /home/lmnp/knut0297/software/modulesfiles/zlib/1.2.11
 
 
 wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.17.tar.bz2

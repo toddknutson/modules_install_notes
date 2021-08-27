@@ -66,7 +66,7 @@ export TZ="America/Chicago"
 # https://stackoverflow.com/questions/26263934/compile-r-with-cairo-support-without-x11
 # Todd's personal module
 # /home/lmnp/knut0297/software/modulesfiles
-module load cairo/1.16.0
+module load /home/lmnp/knut0297/software/modulesfiles/cairo/1.16.0
 
 ./configure --prefix=${MODULES_DIR}/${MODULE_NAME}/${VERSION} --with-recommended-packages=yes --without-x --with-cairo --with-libpng --with-libtiff --with-jpeglib --enable-memory-profiling --enable-R-shlib --enable-R-static-lib CPPFLAGS="-I/panfs/roc/msisoft/bzip2/1.0.6-gcc7.2.0/include/ -L/panfs/roc/msisoft/bzip2/1.0.6-gcc7.2.0/lib"
 

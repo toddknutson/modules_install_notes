@@ -26,7 +26,7 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION
 
 
 module purge
-module load python2/2.7.15
+module load /home/lmnp/knut0297/software/modulesfiles/python2/2.7.15
 
 # Set up a folder for all python stuff called "build"
 mkdir -p $MODULES_DIR/$MODULE_NAME/$VERSION/build

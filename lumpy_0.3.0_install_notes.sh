@@ -46,11 +46,11 @@ cd lumpy-sv
 
 # install dependencies
 module purge
-module load samtools/1.9
-module load samblaster/0.1.24
+module load /home/lmnp/knut0297/software/modulesfiles/samtools/1.9
+module load /home/lmnp/knut0297/software/modulesfiles/samblaster/0.1.24
 module load python2/2.7.15_anaconda
 which gawk # installed at system level /usr/bin
-module load sambamba/0.6.9
+module load /home/lmnp/knut0297/software/modulesfiles/sambamba/0.6.9
 module load gcc/7.2.0
 
 

@@ -58,10 +58,10 @@ perl Build.PL --install_base $MODULES_DIR/$MODULE_NAME/$VERSION
 
 
 # NOTE: These might also be needed to run the tool??
-# module load edlib/1.2.4
+# module load /home/lmnp/knut0297/software/modulesfiles/edlib/1.2.4
 # module load perl/5.26.1
 # module load perl/modules.centos7.5.26.1
-# module load samtools/1.9
+# module load /home/lmnp/knut0297/software/modulesfiles/samtools/1.9
 # module load mummer
 # module load bedtools 
 

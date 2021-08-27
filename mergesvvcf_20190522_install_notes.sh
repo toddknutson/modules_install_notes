@@ -50,9 +50,9 @@ module purge
 module load gcc/7.2.0
 module load bzip2/1.0.6-gnu7.2.0_PIC
 module load python3/3.6.3_anaconda5.0.1
-module load samtools/1.9
+module load /home/lmnp/knut0297/software/modulesfiles/samtools/1.9
 module load bcftools/1.9
-module load htslib/1.6
+module load /home/lmnp/knut0297/software/modulesfiles/htslib/1.6
 export PYTHONUSERBASE="$MODULES_DIR/$MODULE_NAME/$VERSION"
 
 python setup.py install --user

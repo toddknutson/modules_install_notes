@@ -22,8 +22,8 @@ module use /home/lmnp/knut0297/software/modulesfiles
 module purge
 module load gcc/8.2.0
 module load xorg_util_macros/1.19.3
-module load libxaw/1.0.13
-module load libxkbfile/1.1.0
+module load /home/lmnp/knut0297/software/modulesfiles/libxaw/1.0.13
+module load /home/lmnp/knut0297/software/modulesfiles/libxkbfile/1.1.0
 
 wget https://www.x.org/archive//individual/app/xclock-1.0.9.tar.gz
 tar xvzf xclock-1.0.9.tar.gz

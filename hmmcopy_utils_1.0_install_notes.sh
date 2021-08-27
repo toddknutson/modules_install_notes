@@ -37,7 +37,7 @@ git reset --hard
 
 module purge
 #module load boost/1.72.0/gnu-9.2.0
-module load cmake/3.12.3
+module load /home/lmnp/knut0297/software/modulesfiles/cmake/3.12.3
 module load gcc/7.2.0
 which g++
 g++ --version

@@ -54,8 +54,8 @@ module load gcc/7.2.0
 module load zlib/1.2.11_gcc7.2.0
 module load expat/2.1.0
 module load python2/2.7.15_anaconda
-module load asciidoc/8.6.9
-module load xmlto/0.0.28
+module load /home/lmnp/knut0297/software/modulesfiles/asciidoc/8.6.9
+module load /home/lmnp/knut0297/software/modulesfiles/xmlto/0.0.28
 module load perl/5.26.1
 module load perl/modules.centos7.5.26.1
 

@@ -39,7 +39,7 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION/libgit2-$VERSION
 
 
 module purge
-module load cmake/3.12.3
+module load /home/lmnp/knut0297/software/modulesfiles/cmake/3.12.3
 module load gcc/7.2.0
 
 

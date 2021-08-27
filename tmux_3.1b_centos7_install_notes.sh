@@ -58,7 +58,7 @@ cd tmux-3.1b
 
 # modules don't work on the login nodes. Thus, manually export these variables
 # during the linking process.
-# module load libevent/2.1.12_centos6
+# module load /home/lmnp/knut0297/software/modulesfiles/libevent/2.1.12_centos6
 export PATH="$MODULES_DIR/libevent/2.1.12_centos7/bin:$PATH"
 export LIBRARY_PATH="$MODULES_DIR/libevent/2.1.12_centos7/lib:$LIBRARY_PATH"
 export LD_LIBRARY_PATH="$MODULES_DIR/libevent/2.1.12_centos7/lib:$LD_LIBRARY_PATH"

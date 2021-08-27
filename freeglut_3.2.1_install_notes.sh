@@ -23,7 +23,7 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION
 
 module use /home/lmnp/knut0297/software/modulesfiles
 module purge
-module load cmake/3.12.3
+module load /home/lmnp/knut0297/software/modulesfiles/cmake/3.12.3
 module load gcc/7.2.0
 
 wget https://sourceforge.net/projects/freeglut/files/freeglut/3.2.1/freeglut-3.2.1.tar.gz

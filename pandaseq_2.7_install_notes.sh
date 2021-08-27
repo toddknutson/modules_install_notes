@@ -25,9 +25,9 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION
 
 module purge
 module load gcc/7.2.0
-module load libtool/2.4.6
-module load zlib/1.2.11
-module load bzip2/1.0.6
+module load /home/lmnp/knut0297/software/modulesfiles/libtool/2.4.6
+module load /home/lmnp/knut0297/software/modulesfiles/zlib/1.2.11
+module load /home/lmnp/knut0297/software/modulesfiles/bzip2/1.0.6
 
 
 

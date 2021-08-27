@@ -25,7 +25,7 @@ module use /home/lmnp/knut0297/software/modulesfiles
 module purge
 module load gcc/8.2.0
 module load xorg_util_macros/1.19.3
-module load libxaw/1.0.13
+module load /home/lmnp/knut0297/software/modulesfiles/libxaw/1.0.13
 
 
 # This export should not be needed, if xorg_util_macros is loaded above

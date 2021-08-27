@@ -58,7 +58,7 @@ module load java/openjdk-8_202
 # https://stackoverflow.com/questions/26263934/compile-r-with-cairo-support-without-x11
 # Todd's personal module
 # /home/lmnp/knut0297/software/modulesfiles
-module load cairo/1.16.0
+module load /home/lmnp/knut0297/software/modulesfiles/cairo/1.16.0
 
 # Needed for version 4.0.0
 module load pcre2/10.34
