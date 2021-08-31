@@ -59,7 +59,7 @@ cat > $VERSION <<ENDOFMESSAGE
 
 
 # Create a help message for the module
-# e.g. 
+# e.g.
 # module help <module_name>
 
 proc ModulesHelp { } {
@@ -76,9 +76,9 @@ setenv ICHORCNA_EXTDATA "$MODULES_DIR/$MODULE_NAME/$VERSION/ichorCNA/inst/extdat
 
 # Only prints message when being loaded
 if [ module-info mode load ] {
-    puts stderr "An environment variable: \\\$ICHORCNA_LIBDIR, has been set that points to a directory containing the ichorcna library dir."
-    puts stderr "An environment variable: \\\$ICHORCNA_SCRIPTS, has been set that points to a directory containing scripts that can be run with Rscript directly."
-    puts stderr "An environment variable: \\\$ICHORCNA_EXTDATA, has been set that points to a directory containing example data files to use with the tool."
+    puts stderr "An environment variable: ICHORCNA_LIBDIR, has been set that points to a directory containing the ichorcna library dir."
+    puts stderr "An environment variable: ICHORCNA_SCRIPTS, has been set that points to a directory containing scripts that can be run with Rscript directly."
+    puts stderr "An environment variable: ICHORCNA_EXTDATA, has been set that points to a directory containing example data files to use with the tool."
 }
 
 

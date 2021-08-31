@@ -63,7 +63,7 @@ cat > $VERSION <<ENDOFMESSAGE
 
 
 # Create a help message for the module
-# e.g. 
+# e.g.
 # module help <module_name>
 
 proc ModulesHelp { } {
@@ -78,7 +78,7 @@ setenv SALMONTOOLS_SCRIPTS "$MODULES_DIR/$MODULE_NAME/$VERSION/SalmonTools/scrip
 
 # Only prints message when being loaded
 if [ module-info mode load ] {
-    puts stderr "An environment variable: \\\$SALMONTOOLS_SCRIPTS, has been set that points to a directory containing extra salmontools scripts."
+    puts stderr "An environment variable: SALMONTOOLS_SCRIPTS, has been set that points to a directory containing extra salmontools scripts."
 }
 
 ENDOFMESSAGE

@@ -26,7 +26,7 @@ wget -O cellranger-6.0.1.tar.gz "https://cf.10xgenomics.com/releases/cell-exp/ce
 tar xvzf cellranger-${VERSION}.tar.gz
 
 
-# NOTE: the refs have not changed since the previous versions. 
+# NOTE: the refs have not changed since the previous versions.
 # Use a symlink to the previous module data
 ln -s /panfs/roc/groups/0/lmnp/knut0297/software/modules/cellranger/5.0.1/ref_downloads $MODULES_DIR/$MODULE_NAME/$VERSION/
 
@@ -35,15 +35,15 @@ ln -s /panfs/roc/groups/0/lmnp/knut0297/software/modules/cellranger/5.0.1/ref_do
 # # Mouse
 # wget https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-mm10-2020-A.tar.gz
 # tar xzvf refdata-gex-mm10-2020-A.tar.gz
-# 
+#
 # wget https://cf.10xgenomics.com/supp/cell-vdj/refdata-cellranger-vdj-GRCm38-alts-ensembl-5.0.0.tar.gz
 # tar xzvf refdata-cellranger-vdj-GRCm38-alts-ensembl-5.0.0.tar.gz
-# 
-# 
+#
+#
 # # Human
 # wget https://cf.10xgenomics.com/supp/cell-exp/refdata-gex-GRCh38-2020-A.tar.gz
 # tar xzvf refdata-gex-GRCh38-2020-A.tar.gz
-# 
+#
 # wget https://cf.10xgenomics.com/supp/cell-vdj/refdata-cellranger-vdj-GRCh38-alts-ensembl-5.0.0.tar.gz
 # tar xzvf refdata-cellranger-vdj-GRCh38-alts-ensembl-5.0.0.tar.gz
 
@@ -64,7 +64,7 @@ setenv CELLRANGER_REFS "$MODULES_DIR/$MODULE_NAME/$VERSION/ref_downloads"
 
 # Only prints message when being loaded
 if [ module-info mode load ] {
-    puts stderr "An environment variable: \\\$CELLRANGER_REFS, has been set to: $MODULES_DIR/$MODULE_NAME/$VERSION/ref_downloads"
+    puts stderr "An environment variable: CELLRANGER_REFS, has been set to: $MODULES_DIR/$MODULE_NAME/$VERSION/ref_downloads"
 }
 
 

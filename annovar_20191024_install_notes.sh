@@ -39,11 +39,11 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION
 
 # These are just perl scripts, do not need to make install
 
-# 
+#
 # Here is the link to download ANNOVAR: http://www.openbioinformatics.org/annovar/download/0wgxR2rIVP/annovar.latest.tar.gz
-# 
+#
 # Please cite ANNOVAR paper in your publication: Wang K, Li M, Hakonarson H. ANNOVAR: Functional annotation of genetic variants from next-generation sequencing data, Nucleic Acids Research, 38:e164, 2010
-# 
+#
 
 
 
@@ -67,8 +67,8 @@ find $MODULES_DIR/$MODULE_NAME -name "*.pl" -print0 | xargs -0 chmod u+rx
 # ---------------------------------------------------------------------
 # Download databases
 # ---------------------------------------------------------------------
-perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar exac03 humandb/ 
-perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar avsnp150 humandb/ 
+perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar exac03 humandb/
+perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar avsnp150 humandb/
 perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar dbnsfp35c humandb/
 perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar gnomad211_genome humandb/
 perl annotate_variation.pl -buildver hg19 -downdb -webfrom annovar gnomad211_exome humandb/
@@ -151,7 +151,7 @@ cat > $VERSION <<ENDOFMESSAGE
 
 
 # Create a help message for the module
-# e.g. 
+# e.g.
 # module help <module_name>
 
 proc ModulesHelp { } {
@@ -165,7 +165,7 @@ setenv ANNOVAR_HUMANDB "$MODULES_DIR/$MODULE_NAME/$VERSION/annovar/humandb"
 
 # Only prints message when being loaded
 if [ module-info mode load ] {
- 	puts stderr "An environment variable: \\\$ANNOVAR_HUMANDB, has been set that points to a directory containing Annovar human databases."
+ 	puts stderr "An environment variable: ANNOVAR_HUMANDB, has been set that points to a directory containing Annovar human databases."
 }
 
 

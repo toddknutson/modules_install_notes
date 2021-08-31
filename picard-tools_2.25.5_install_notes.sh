@@ -58,7 +58,7 @@ setenv PICARD_JAR \$ptool
 # Only prints message when being loaded
 if [ module-info mode load ] {
     puts stderr "picard is set to write temporary files to \$tmpdir"
-    puts stderr "\\\$PICARD_JAR environment variable is set to: \$ptool"
+    puts stderr "PICARD_JAR environment variable is set to: \$ptool"
     puts stderr "For example, to get help with MarkDuplicates, run the command: java -jar \\\$PICARD_JAR MarkDuplicates --help"
 }
 

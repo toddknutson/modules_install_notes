@@ -62,7 +62,7 @@ cat > $VERSION <<ENDOFMESSAGE
 
 
 # Create a help message for the module
-# e.g. 
+# e.g.
 # module help <module_name>
 
 proc ModulesHelp { } {
@@ -81,7 +81,7 @@ setenv NGSCHECKMATE_INSTALL_DIR "$MODULES_DIR/$MODULE_NAME/$VERSION/NGSCheckMate
 
 # Only prints message when being loaded
 if [ module-info mode load ] {
-    puts stderr "An environment variable: \\\$NGSCHECKMATE_INSTALL_DIR, has been set that points to a directory containing NGSCheckMate scripts."
+    puts stderr "An environment variable: NGSCHECKMATE_INSTALL_DIR, has been set that points to a directory containing NGSCheckMate scripts."
 }
 
 
