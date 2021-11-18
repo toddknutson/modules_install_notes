@@ -88,6 +88,26 @@ find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -executable -print0 | xargs -0 c
 
 
 
+# ---------------------------------------------------------------------
+# EXAMPLE usage
+# ---------------------------------------------------------------------
+
+# 
+# bbduk.sh \
+# in="R1.fastq" \
+# in2="R2.fastq" \
+# out="non_human_R1.fastq" \
+# out2="non_human_R2.fastq" \
+# ref="/panfs/roc/risdb_new/ensembl/main/homo_sapiens/GRCh38/seq/genome.fa" \
+# stats="BBDuk_rRNA_Stats.txt" \
+# k=25 \
+# editdistance=1 \
+# prealloc=t \
+# threads="1" \
+# -Xmx75g
+
+
+
 
 
 
