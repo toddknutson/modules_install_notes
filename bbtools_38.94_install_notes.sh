@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# vcf2maf
 
-
-# https://useast.ensembl.org/info/docs/tools/vep/script/vep_download.html
 
 MODULE_NAME=bbtools
 VERSION=38.94
