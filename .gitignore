@@ -1,4 +1,6 @@
 # Ignore modules that I failed to get installed.
-
 FAIL*
 
+# Do not track slurm stdout and stderr files
+*sh.e*
+*sh.o*
