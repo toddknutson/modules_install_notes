@@ -38,7 +38,6 @@ cd $MODULESFILES_DIR/$MODULE_NAME
 cat > $VERSION <<EOF
 #%Module######################################################################
 
-module load /home/lmnp/knut0297/software/modulesfiles/rclone/1.53.2
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/cephtools/build/bin"
 prepend-path MANPATH "$MODULES_DIR/$MODULE_NAME/$VERSION/cephtools/build/share/man"
 
