@@ -161,22 +161,24 @@ ENDOFMESSAGE
 
 
 
+
 # ---------------------------------------------------------------------
 # Update permissions (if you want to share the module)
 # ---------------------------------------------------------------------
 
 
-# Make all directories readable and executable
-find $MODULES_DIR/$MODULE_NAME/$VERSION -type d -print0 | xargs -0 chmod a+rx
-find $MODULESFILES_DIR/$MODULE_NAME/$VERSION -type d -print0 | xargs -0 chmod a+rx
-
-# Make all files readable
+# Make all files readable; directories readable and executable
+chmod a+rxs $MODULES_DIR/$MODULE_NAME
+find $MODULES_DIR/$MODULE_NAME/$VERSION -type d -print0 | xargs -0 chmod a+rxs
 find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -print0 | xargs -0 chmod a+r
-find $MODULESFILES_DIR/$MODULE_NAME/$VERSION -type f -print0 | xargs -0 chmod a+r
+chmod a+rxs $MODULESFILES_DIR/$MODULE_NAME
+find $MODULESFILES_DIR/$MODULE_NAME -type f -print0 | xargs -0 chmod a+r
 
-# Make all files, that are already executable, readable and executable
+# Make all files, that were already executable for the user, readable and executable for all
 find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -executable -print0 | xargs -0 chmod a+rx
-# Note: there are no executable files in the modulesfiles directory
+
+
+
 
 
 
