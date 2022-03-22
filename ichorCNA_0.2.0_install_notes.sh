@@ -41,7 +41,11 @@ find $MODULES_DIR/$MODULE_NAME/$VERSION/ichorCNA/scripts -name "*.R" -print0 | x
 # library(devtools)
 # install_github("broadinstitute/ichorCNA")
 
-
+# module purge
+# module load R/4.0.3_openblas
+# Also installed directly as an R package...
+# library(devtools)
+# install_github("broadinstitute/ichorCNA")
 
 
 # ---------------------------------------------------------------------
@@ -79,6 +83,7 @@ if [ module-info mode load ] {
     puts stderr "An environment variable: ICHORCNA_LIBDIR, has been set that points to a directory containing the ichorcna library dir."
     puts stderr "An environment variable: ICHORCNA_SCRIPTS, has been set that points to a directory containing scripts that can be run with Rscript directly."
     puts stderr "An environment variable: ICHORCNA_EXTDATA, has been set that points to a directory containing example data files to use with the tool."
+    puts stderr "Make sure you install the R package too: devtools::install_github(\"broadinstitute/ichorCNA\")"
 }
 
 
