@@ -4,3 +4,5 @@ FAIL*
 # Do not track slurm stdout and stderr files
 *sh.e*
 *sh.o*
+*slurm.e*
+*slurm.o*
