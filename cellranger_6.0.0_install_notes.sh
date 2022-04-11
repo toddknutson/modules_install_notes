@@ -28,7 +28,7 @@ tar xvzf cellranger-${VERSION}.tar.gz
 
 # NOTE: the refs have not changed since the previous versions.
 # Use a symlink to the previous module data
-ln -s /panfs/roc/groups/0/lmnp/knut0297/software/modules/cellranger/5.0.1/ref_downloads $MODULES_DIR/$MODULE_NAME/$VERSION/
+ln -s /home/lmnp/knut0297/software/modules/cellranger/5.0.1/ref_downloads $MODULES_DIR/$MODULE_NAME/$VERSION/
 
 
 

@@ -32,6 +32,44 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION/Krona/KronaTools
 
 
 
+# Fix the symlinks -- point to files using /home/ instead of /panfs/roc/
+readarray -t FILES <<<"ClassifyHits
+ClassifyBLAST
+GetContigMagnitudes
+GetLCA
+GetLibPath
+GetTaxIDFromAcc
+GetTaxInfo
+ImportBLAST
+ImportDiskUsage
+ImportEC
+ImportFCP
+ImportGalaxy
+ImportHits
+ImportKrona
+ImportMETAREP-BLAST
+ImportMETAREP-EC
+ImportMGRAST
+ImportPhymmBL
+ImportRDP
+ImportRDPComparison
+ImportTaxonomy
+ImportText
+ImportXML"
+
+echo "${FILES[@]}"
+echo "${#FILES[@]}"
+echo "${!FILES[@]}"
+
+
+cd $MODULES_DIR/$MODULE_NAME/$VERSION/Krona/KronaTools/bin
+rm *
+for i in "${!FILES[@]}"
+do
+    ln -s "${MODULES_DIR}/${MODULE_NAME}/${VERSION}/Krona/KronaTools/scripts/${FILES[$i]}.pl" "kt${FILES[$i]}"
+done
+
+
 
 
 # Instead of running "updateTaxonomy.sh", I will simply copy over an updated taxonomy dir
