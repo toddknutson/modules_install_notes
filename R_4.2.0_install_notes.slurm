@@ -116,6 +116,7 @@ module load /home/lmnp/knut0297/software/modulesfiles/fftw/3.3.10
 module load /home/lmnp/knut0297/software/modulesfiles/cmake/3.21.1
 module load texlive/20131202
 module load java/openjdk-8_202
+module load /home/lmnp/knut0297/software/modulesfiles/libpoppler/22.04.0
 
 
 export CC=$(which gcc)
@@ -348,6 +349,7 @@ module load /home/lmnp/knut0297/software/modulesfiles/fftw/3.3.10
 module load /home/lmnp/knut0297/software/modulesfiles/cmake/3.21.1
 module load texlive/20131202
 module load java/openjdk-8_202
+module load /home/lmnp/knut0297/software/modulesfiles/libpoppler/22.04.0
 
 
 
