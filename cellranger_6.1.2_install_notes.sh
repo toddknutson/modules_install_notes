@@ -61,10 +61,12 @@ cat > $VERSION <<EOF
 
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/cellranger-${VERSION}"
 setenv CELLRANGER_REFS "$MODULES_DIR/$MODULE_NAME/$VERSION/ref_downloads"
+setenv CELLRANGER_BARCODES "$MODULES_DIR/$MODULE_NAME/$VERSION/cellranger-${VERSION}/lib/python/cellranger/barcodes"
 
 # Only prints message when being loaded
 if [ module-info mode load ] {
     puts stderr "An environment variable: CELLRANGER_REFS, has been set to: $MODULES_DIR/$MODULE_NAME/$VERSION/ref_downloads"
+    puts stderr "An environment variable: CELLRANGER_BARCODES, has been set to: $MODULES_DIR/$MODULE_NAME/$VERSION/cellranger-${VERSION}/lib/python/cellranger/barcodes"
 }
 
 
