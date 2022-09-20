@@ -321,7 +321,7 @@ cd $MODULESFILES_DIR/$MODULE_NAME
 cat > $VERSION <<HEREDOC
 #%Module######################################################################
 
-module purge
+
 module load gcc/7.2.0
 module load /home/lmnp/knut0297/software/modulesfiles/zlib/1.2.11
 module load /home/lmnp/knut0297/software/modulesfiles/bzip2/1.0.6
