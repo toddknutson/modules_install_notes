@@ -120,6 +120,7 @@ EOF
 
 
 
+
 # ---------------------------------------------------------------------
 # Create the modulefile default version
 # ---------------------------------------------------------------------
@@ -154,18 +155,6 @@ find $MODULESFILES_DIR/$MODULE_NAME -type f -print0 | xargs -0 chmod a+r
 find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -executable -print0 | xargs -0 chmod a+rx
 
 
-
-
-
-# ---------------------------------------------------------------------
-# For Todd only: Update my .bashrc with current version
-# ---------------------------------------------------------------------
-
-if [ $USER == "knut0297" ]
-then
-	# Find and replace with current $VERSION
-	sed -i "s|$MODULES_DIR/$MODULE_NAME/.*/build/bin|$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin|g" /home/lmnp/knut0297/.bashrc
-fi
 
 
 

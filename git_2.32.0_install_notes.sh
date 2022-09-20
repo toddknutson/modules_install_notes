@@ -115,6 +115,8 @@ EOF
 
 
 
+
+
 # ---------------------------------------------------------------------
 # Create the modulefile default version
 # ---------------------------------------------------------------------
@@ -148,19 +150,6 @@ find $MODULESFILES_DIR/$MODULE_NAME -type f -print0 | xargs -0 chmod a+r
 # Make all files, that are already executable, readable and executable
 find $MODULES_DIR/$MODULE_NAME -type f -executable -print0 | xargs -0 chmod a+rx
 # Note: there are no executable files in the modulesfiles directory
-
-
-
-
-# ---------------------------------------------------------------------
-# For Todd only: Update my .bashrc with current version
-# ---------------------------------------------------------------------
-
-if [ $USER == "knut0297" ]
-then
-	# Find and replace with current $VERSION
-	sed -i "s|/home/lmnp/knut0297/software/modules/git/.*/|/home/lmnp/knut0297/software/modules/git/$VERSION/|g" /home/lmnp/knut0297/.bashrc
-fi
 
 
 

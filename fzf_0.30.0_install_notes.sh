@@ -55,7 +55,6 @@ EOF
 
 
 
-
 # ---------------------------------------------------------------------
 # Create the modulefile default version
 # ---------------------------------------------------------------------
@@ -88,22 +87,6 @@ find $MODULESFILES_DIR/$MODULE_NAME -type f -print0 | xargs -0 chmod a+r
 
 # Make all files, that were already executable for the user, readable and executable for all
 find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -executable -print0 | xargs -0 chmod a+rx
-
-
-
-
-
-
-# ---------------------------------------------------------------------
-# For Todd only: Update my .bashrc with current version
-# ---------------------------------------------------------------------
-
-if [ $USER == "knut0297" ]
-then
-	# Find and replace with current $VERSION
-	sed -i "s|$MODULES_DIR/$MODULE_NAME/.*/bin|$MODULES_DIR/$MODULE_NAME/$VERSION/bin|g" /home/lmnp/knut0297/.bashrc
-fi
-
 
 
 

@@ -108,19 +108,23 @@ which patch
 which gettext 
 which curl
 
+# This is a problem. cc (/usr/bin/cc) is a symlink to the default gcc on the system, not the loaded gcc module
+which cc
+# Therefore, set 'CC=gcc make' before make, so make finds the right gcc module (not cc)
 
-
-
+export CC=gcc
 # Build neovim from source
 # (Do not add a -j flag if ninja is installed! The build will be in parallel automatically.)
-make \
+CC=gcc make \
 CMAKE_INSTALL_PREFIX=$MODULES_DIR/$MODULE_NAME/$VERSION/build \
 CMAKE_BUILD_TYPE=Release \
 install
 
 
-
-
+# This needs to be done before running nvim
+# module load gcc/7.2.0
+# export CC=gcc
+# nvim
 
 # ---------------------------------------------------------------------
 # Create the modulefile
@@ -136,6 +140,9 @@ cat > $VERSION <<HEREDOC
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin"
 
 HEREDOC
+
+
+
 
 
 # ---------------------------------------------------------------------
@@ -174,16 +181,5 @@ find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -executable -print0 | xargs -0 c
 
 
 
-
-
-# ---------------------------------------------------------------------
-# For Todd only: Update my .bashrc with current version
-# ---------------------------------------------------------------------
-
-if [ $USER == "knut0297" ]
-then
-	# Find and replace with current $VERSION
-	sed -i "s|$MODULES_DIR/$MODULE_NAME/.*/build/bin|$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin|g" /home/lmnp/knut0297/.bashrc
-fi
 
 
