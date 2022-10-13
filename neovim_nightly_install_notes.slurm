@@ -148,6 +148,8 @@ cat > $VERSION <<HEREDOC
 #%Module######################################################################
 
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin"
+setenv VISUAL "nvim"
+setenv EDITOR "nvim"
 
 HEREDOC
 
