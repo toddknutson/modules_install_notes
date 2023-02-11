@@ -1,18 +1,62 @@
 #!/bin/bash
-
-
-# 2021-01-12
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=64
+#SBATCH --time=8:00:00
+#SBATCH --mem=32gb
+#SBATCH --tmp=16gb
+#SBATCH --error=%x.e%j
+#SBATCH --output=%x.o%j
+#SBATCH --export=NONE
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=knut0297@umn.edu
+#SBATCH --partition=agsmall
 
 
 #######################################################################
-# SUCCESS
+# Script preliminaries
+#######################################################################
+
+# Exit script immediately upon error
+set -o errexit -o errtrace -o pipefail -o functrace
+
+
+function trap_my_error {
+    >&2 echo "ERROR: \"${BASH_COMMAND}\" command failed with exit code $? [$(date)]"
+}
+
+function trap_my_exit {
+    echo "[$(date)] Script exit."
+    # Print env variables
+    declare -p
+    # Print slurm job details
+    if [ -n "${SLURM_JOB_ID+x}" ]; then
+        scontrol show job "${SLURM_JOB_ID}"
+        sstat -j "${SLURM_JOB_ID}" --format=JobID,MaxRSS,MaxVMSize,NTasks,MaxDiskWrite,MaxDiskRead
+    fi
+}
+# Execute these functions after any error (i.e. nonzero exit code) or 
+# when exiting the script (i.e. with zero or nonzero exit code).
+trap trap_my_error ERR
+trap trap_my_exit EXIT
+
+
+# If not a slurm job, set THREADS to 1
+THREADS=$([ -n "${SLURM_CPUS_PER_TASK+x}" ] && echo "${SLURM_CPUS_PER_TASK}" || echo 1)
+export THREADS
+
+echo "[$(date)] Script start."
+
+#######################################################################
+# Script
 #######################################################################
 
 
-# Python 3
+
+# 2022-12-20
 
 
-MODULE_NAME=python3
+MODULE_NAME=python
 VERSION=3.9.1
 MODULES_DIR=$HOME/software/modules
 MODULESFILES_DIR=$HOME/software/modulesfiles
@@ -32,7 +76,6 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION/Python-$VERSION
 
 
 
-module purge
 module load gcc/7.2.0
 module load bzip2/1.0.6-gnu7.2.0_PIC
 module load /home/lmnp/knut0297/software/modulesfiles/libffi/3.3
@@ -63,7 +106,7 @@ LIBFFI_INCLUDEDIR="/home/lmnp/knut0297/software/modules/libffi/3.3/build/include
 
 
 
-make altinstall -j 16
+make altinstall -j $THREADS
 
 # NOTE error message:
 # make: warning:  Clock skew detected.  Your build may be incomplete.
@@ -137,6 +180,11 @@ prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin"
 prepend-path LD_LIBRARY_PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/lib"
 prepend-path PYTHONPATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/lib/python3.9/site-packages"
 
+# Add local paths because the above paths will not be writable, causing package installs to
+# occur in local dirs.
+prepend-path PATH "[getenv HOME]/.local/bin:[getenv PATH]]"
+prepend-path PYTHONPATH "[getenv HOME]/.local/lib/python3.9/site-packages:[getenv PYTHONPATH]"
+
 EOM
 
 
@@ -179,6 +227,17 @@ find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -executable -print0 | xargs -0 c
 
 
 
+
+
+#######################################################################
+# Block permissions on system files
+#######################################################################
+
+# I do not want anyone (including myself) from writing to the base site-packages dir.
+# Remove dir write permissions. If I need to delete these files, change the permissions first.
+
+find $MODULES_DIR/$MODULE_NAME/$VERSION -type d -print0 | xargs -0 chmod a-w
+find $MODULES_DIR/$MODULE_NAME/$VERSION -type f -print0 | xargs -0 chmod a-w
 
 
 

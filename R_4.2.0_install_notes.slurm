@@ -106,6 +106,7 @@ module load /home/lmnp/knut0297/software/modulesfiles/libpng/1.6.34
 module load /home/lmnp/knut0297/software/modulesfiles/hdf5/1.8.13
 module load /home/lmnp/knut0297/software/modulesfiles/openblas/0.3.20
 module load /home/lmnp/knut0297/software/modulesfiles/magick/7.0.8-23
+module load /home/lmnp/knut0297/software/modulesfiles/sqlite/3.38.1
 module load /home/lmnp/knut0297/software/modulesfiles/libproj/9.0.0
 module load /home/lmnp/knut0297/software/modulesfiles/gsl/2.7
 module load /home/lmnp/knut0297/software/modulesfiles/libgeos/3.10.2
@@ -339,6 +340,7 @@ module load /home/lmnp/knut0297/software/modulesfiles/libpng/1.6.34
 module load /home/lmnp/knut0297/software/modulesfiles/hdf5/1.8.13
 module load /home/lmnp/knut0297/software/modulesfiles/openblas/0.3.20
 module load /home/lmnp/knut0297/software/modulesfiles/magick/7.0.8-23
+module load /home/lmnp/knut0297/software/modulesfiles/sqlite/3.38.1
 module load /home/lmnp/knut0297/software/modulesfiles/libproj/9.0.0
 module load /home/lmnp/knut0297/software/modulesfiles/gsl/2.7
 module load /home/lmnp/knut0297/software/modulesfiles/libgeos/3.10.2
