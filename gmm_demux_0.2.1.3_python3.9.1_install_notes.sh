@@ -26,8 +26,7 @@ cd $MODULES_DIR/$MODULE_NAME/$VERSION
 
 
 
-module purge
-module load /home/lmnp/knut0297/software/modulesfiles/python3/3.9.1
+module load /home/lmnp/knut0297/software/modulesfiles/python/3.9.1
 
 
 # Set up a folder for all python stuff called "build"
@@ -121,7 +120,7 @@ cd $MODULESFILES_DIR/$MODULE_NAME
 cat > $VERSION <<EOM
 #%Module######################################################################
 
-module load /home/lmnp/knut0297/software/modulesfiles/python3/3.9.1
+module load /home/lmnp/knut0297/software/modulesfiles/python/3.9.1
 prepend-path PATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/bin"
 prepend-path PYTHONPATH "$MODULES_DIR/$MODULE_NAME/$VERSION/build/lib/python3.9/site-packages"
 
