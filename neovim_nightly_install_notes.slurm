@@ -54,10 +54,6 @@ echo "[$(date)] Script start."
 
 
 
-
-# 2022-09-09
-
-
 MODULE_NAME=neovim
 VERSION=nightly
 MODULES_DIR=$HOME/software/modules
